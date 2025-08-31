@@ -1,38 +1,70 @@
+@import "tailwindcss";
+
 .App {
   text-align: center;
 }
+ * {
+    /* background-color: #282c34; */
+    /* color: white; */
+    font-family: "League Spartan", sans-serif;
+    transition: background 0.3s, color 0.3s;
+ }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  /* Theme styles */
+  body.light {
+    background: hsl(0, 0%, 90%);
+    color: hsl(221, 14%, 31%);
+    accent-color: #fff;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  body.dark {
+    background: hsl(222, 26%, 31%);
+    color: #fff;
+    accent-color:hsl(60, 10%, 19%);
   }
-  to {
-    transform: rotate(360deg);
+
+  body.colorful {
+    background: hsl(268, 75%, 9%);
+    color: hsl(52, 100%, 62%);
+    accent-color: #fff;
   }
-}
+
+  /* Slider button styles */
+  .slider {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    background: #ddd;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .slider span {
+    flex: 1;
+    text-align: center;
+    z-index: 2;
+    font-size: 14px;
+  }
+
+  /* Movable circle */
+  .indicator {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    width: 45px;
+    height: 34px;
+    background: #fff;
+    border-radius: 17px;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .pos-0 { transform: translateX(0); }
+  .pos-1 { transform: translateX(50px); }
+  .pos-2 { transform: translateX(95px); }
